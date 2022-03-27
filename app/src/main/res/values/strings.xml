@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MeliTest</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="search_fragment_label">Search</string>
+    <string name="results_fragment_label">Results</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>
