@@ -30,7 +30,7 @@ class ResultsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel.performSearch(args.query)
+        viewModel.performSearch(args.query,false)
         _binding = ResultsFragmentBinding.inflate(inflater, container, false)
 
         return binding.root
@@ -53,10 +53,9 @@ class ResultsFragment : Fragment() {
 
     private fun initListeners(){
         binding.rvSearchResults.addOnScrollListener(object: RecyclerView.OnScrollListener(){
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-                if(recyclerView.canScrollVertically(-1)){
-                    /**Paginacion **/
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                if(!binding.rvSearchResults.canScrollVertically(1)){
+                    viewModel.performSearch(isScrolledDown = true)
                 }
             }
         })
