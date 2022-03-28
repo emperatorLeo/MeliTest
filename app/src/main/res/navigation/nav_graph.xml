@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/ResultFragment"
-        android:name="com.example.melitest.results.ResultsFragment"
+        android:name="com.example.melitest.results.view.ResultsFragment"
         android:label="@string/results_fragment_label"
         tools:layout="@layout/results_fragment">
 

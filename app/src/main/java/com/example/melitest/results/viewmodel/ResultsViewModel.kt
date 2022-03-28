@@ -1,4 +1,4 @@
-package com.example.melitest.results
+package com.example.melitest.results.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

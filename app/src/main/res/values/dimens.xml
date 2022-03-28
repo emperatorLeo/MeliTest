@@ -2,4 +2,10 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="size15dp">15dp</dimen>
     <dimen name="size4dp">4dp</dimen>
+    <dimen name="size_50dp">50dp</dimen>
+    <dimen name="size_10dp">10dp</dimen>
+    <dimen name="meli_item_width">100dp</dimen>
+    <dimen name="meli_item_height">110dp</dimen>
+    <dimen name="meli_item_text_size">12sp</dimen>
+    <dimen name="meli_item_price_size">20sp</dimen>
 </resources>
