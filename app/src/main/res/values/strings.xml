@@ -10,4 +10,7 @@
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="query_hint">Buscar en mercado libre</string>
+    <string name="could_not_find_error">Lo sentimos , no pudimos encontrar tu articulo</string>
+    <string name="network_connection_error">vaya ! parece que tienes un problema con tu conexion</string>
+    <string name="server_error">Te pedimos disculpas , parece que tuvimos un problema en nuestro server</string>
 </resources>

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".results.view.ResultsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -10,5 +11,41 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/meli_item"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lav_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        android:elevation="@dimen/size_10dp"
+        app:lottie_rawRes="@raw/loading_animation"
+        android:background="@color/light_gray"
+        android:visibility="gone"
+        />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lav_error"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="400dp"
+        app:lottie_autoPlay="true"
+        android:elevation="@dimen/size_10dp"
+        app:lottie_rawRes="@raw/loading_animation"
+        app:layout_constraintVertical_bias="0.2"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/tv_message_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.8"
+        android:textColor="@android:color/holo_red_dark"
+        android:gravity="center_horizontal"
+        android:padding="@dimen/size_10dp"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
