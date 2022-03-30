@@ -30,6 +30,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_height="400dp"
         app:lottie_autoPlay="true"
+        app:lottie_repeatMode="restart"
         android:elevation="@dimen/size_10dp"
         app:lottie_rawRes="@raw/loading_animation"
         app:layout_constraintVertical_bias="0.2"

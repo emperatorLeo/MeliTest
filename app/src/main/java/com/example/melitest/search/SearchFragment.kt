@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LifecycleObserver
 import androidx.navigation.fragment.findNavController
 import com.example.melitest.R
 import com.example.melitest.databinding.SearchFragmentBinding
@@ -57,10 +56,10 @@ class SearchFragment : Fragment() {
 
     private fun goToResultsFragment() {
         if(binding.svSearcher.query.isNullOrEmpty()){
-            Snackbar.make(this.requireView(),"debes insertar un objeto",Snackbar.LENGTH_SHORT).show()
+            Snackbar.make(this.requireView(),R.string.empty_querty_message,Snackbar.LENGTH_SHORT).show()
         }else {
             findNavController().navigate(
-                R.id.action_FirstFragment_to_SecondFragment,
+                R.id.action_SearchFragment_to_ResultsFragment,
                 bundleOf(QUERY to binding.svSearcher.query.toString())
             )
         }

@@ -12,7 +12,7 @@
         tools:layout="@layout/search_fragment">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            android:id="@+id/action_SearchFragment_to_ResultsFragment"
             app:destination="@id/ResultFragment" />
     </fragment>
     <fragment
@@ -22,10 +22,36 @@
         tools:layout="@layout/results_fragment">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/SearchFragment" />
+            android:id="@+id/action_ResultFragment_to_DetailFragment"
+            app:destination="@id/DetailFragment" />
         <argument
             android:name="query"
             app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/DetailFragment"
+        android:name="com.example.melitest.details.DetailItemFragment"
+        android:label="Details"
+        tools:layout="@layout/detail_item_fragment">
+
+        <argument
+            android:name="detailState"
+            app:argType="string"
+            android:defaultValue="state" />
+
+        <argument
+            android:name="detailTitle"
+            app:argType="string"
+            android:defaultValue="title" />
+
+        <argument
+            android:name="detailImage"
+            app:argType="string"/>
+
+        <argument
+            android:name="detailPrice"
+            app:argType="float" />
+
     </fragment>
 </navigation>

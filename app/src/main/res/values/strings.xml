@@ -13,4 +13,8 @@
     <string name="could_not_find_error">Lo sentimos , no pudimos encontrar tu articulo</string>
     <string name="network_connection_error">vaya ! parece que tienes un problema con tu conexion</string>
     <string name="server_error">Te pedimos disculpas , parece que tuvimos un problema en nuestro server</string>
+    <string name="btn_buy_text">Comprar</string>
+    <string name="btn_add_to_cart_text">Agregar al carrito</string>
+    <string name="empty_querty_message">"debes insertar una palabra u objeto que estes buscando"</string>
+    <string name="detail_formatter_price">$ %1$.1f</string>
 </resources>

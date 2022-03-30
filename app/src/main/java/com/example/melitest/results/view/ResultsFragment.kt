@@ -9,13 +9,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.melitest.R
+import com.example.melitest.api.MeliItem
 import com.example.melitest.api.MeliResponse
+import com.example.melitest.commons.OnItemClickListener
 import com.example.melitest.commons.observe
 import com.example.melitest.databinding.ResultsFragmentBinding
 import com.example.melitest.results.model.ResultLoading
@@ -30,10 +34,18 @@ import com.example.melitest.results.viewmodel.ResultsViewModel
 class ResultsFragment : Fragment() {
 
     private var _binding: ResultsFragmentBinding? = null
+    private val binding get() = _binding!!
     private val args: ResultsFragmentArgs by navArgs()
     private val viewModel: ResultsViewModel by viewModels()
-    private val binding get() = _binding!!
+
     private lateinit var meliAdapter: MeliAdapter
+
+    companion object {
+        const val STATE = "detailState"
+        const val TITLE = "detailTitle"
+        const val IMAGE = "detailImage"
+        const val PRICE = "detailPrice"
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -55,11 +67,26 @@ class ResultsFragment : Fragment() {
     }
 
     private fun initViews() {
-        meliAdapter = MeliAdapter(mutableListOf())
+        meliAdapter = MeliAdapter(mutableListOf(), object : OnItemClickListener {
+            override fun onItemClickListener(meliItem: MeliItem) {
+                findNavController().navigate(
+                    R.id.action_ResultFragment_to_DetailFragment,
+                    bundleOf(
+                        STATE to meliItem.condition,
+                        TITLE to meliItem.title,
+                        IMAGE to meliItem.thumbnail,
+                        PRICE to meliItem.price.toFloat()
+                    )
+                )
+            }
+        })
+
         binding.rvSearchResults.apply {
             this.layoutManager = LinearLayoutManager(requireContext())
             this.adapter = meliAdapter
         }
+
+
     }
 
     private fun initListeners() {

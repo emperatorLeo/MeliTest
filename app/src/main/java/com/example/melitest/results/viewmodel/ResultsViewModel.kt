@@ -10,6 +10,7 @@ import com.example.melitest.results.model.ResultLoading
 import com.example.melitest.results.model.ResultNotFoundError
 import com.example.melitest.results.model.ResultServerError
 import com.example.melitest.results.model.ResultsState
+import com.example.melitest.results.usecase.SearchProductUseCase
 import java.net.HttpURLConnection
 import kotlinx.coroutines.launch
 
@@ -29,7 +30,7 @@ class ResultsViewModel : ViewModel() {
             mQuery = query
         }
         viewModelScope.launch {
-            val response = RemoteMeliDataSource().searchProduct(mQuery, offset)
+            val response = SearchProductUseCase().performSearch(mQuery, offset)
             if (HttpURLConnection.HTTP_OK == response.code()) {
                 if (response.body()!!.meliItemResponseList.isEmpty()) {
                     _resultState.value = ResultNotFoundError
@@ -42,6 +43,7 @@ class ResultsViewModel : ViewModel() {
         }
 
     }
+
 
 }
 

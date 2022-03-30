@@ -6,11 +6,15 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.melitest.api.MeliItem
+import com.example.melitest.commons.OnItemClickListener
 import com.example.melitest.commons.fixUrl
 import com.example.melitest.databinding.MeliItemBinding
 
-class MeliAdapter(private val mProducts: MutableList<MeliItem>) : RecyclerView.Adapter<MeliAdapter.MeliHolder>() {
-    private lateinit var context:Context
+class MeliAdapter(
+    private val mProducts: MutableList<MeliItem>,
+    private val onItemClickListener: OnItemClickListener
+) : RecyclerView.Adapter<MeliAdapter.MeliHolder>() {
+    private lateinit var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MeliHolder {
         val binding = MeliItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -27,6 +31,9 @@ class MeliAdapter(private val mProducts: MutableList<MeliItem>) : RecyclerView.A
                 binding.tvNameItemProduct.text = title
                 binding.tvPriceItemProduct.text = price.toString()
             }
+        }
+        holder.itemView.setOnClickListener {
+            onItemClickListener.onItemClickListener(mProducts[position])
         }
     }
 

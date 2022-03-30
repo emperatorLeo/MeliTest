@@ -8,4 +8,7 @@
     <dimen name="meli_item_height">110dp</dimen>
     <dimen name="meli_item_text_size">12sp</dimen>
     <dimen name="meli_item_price_size">20sp</dimen>
+    <dimen name="detail_item_title_size">15sp</dimen>
+    <dimen name="detail_item_image_size">300dp</dimen>
+    <dimen name="detail_price_size">20sp</dimen>
 </resources>
