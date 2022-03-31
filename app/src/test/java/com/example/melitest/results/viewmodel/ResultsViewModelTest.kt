@@ -9,15 +9,8 @@ import com.example.melitest.results.model.ResultsState
 import com.example.melitest.results.usecase.SearchProductUseCase
 import com.example.melitest.results.viewmodel.DummyMeliResponse.getDummyMeliEmptyResponse
 import com.example.melitest.results.viewmodel.DummyMeliResponse.getDummyMeliResponse
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.test.TestCoroutineDispatcher
-import kotlinx.coroutines.test.TestCoroutineScope
-import kotlinx.coroutines.test.resetMain
-import kotlinx.coroutines.test.runBlockingTest
-import kotlinx.coroutines.test.setMain
 import okhttp3.ResponseBody
-import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
