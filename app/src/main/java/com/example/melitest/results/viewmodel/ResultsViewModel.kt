@@ -14,7 +14,7 @@ import com.example.melitest.results.usecase.SearchProductUseCase
 import java.net.HttpURLConnection
 import kotlinx.coroutines.launch
 
-class ResultsViewModel : ViewModel() {
+class ResultsViewModel(private val useCase: SearchProductUseCase) : ViewModel() {
     private val _meliResponse = MutableLiveData<MeliResponse>()
     val meliResponse: LiveData<MeliResponse> = _meliResponse
 
@@ -30,7 +30,7 @@ class ResultsViewModel : ViewModel() {
             mQuery = query
         }
         viewModelScope.launch {
-            val response = SearchProductUseCase().performSearch(mQuery, offset)
+            val response = useCase.performSearch(mQuery, offset)
             if (HttpURLConnection.HTTP_OK == response.code()) {
                 if (response.body()!!.meliItemResponseList.isEmpty()) {
                     _resultState.value = ResultNotFoundError

@@ -26,6 +26,7 @@ import com.example.melitest.results.model.ResultLoading
 import com.example.melitest.results.model.ResultNotFoundError
 import com.example.melitest.results.model.ResultServerError
 import com.example.melitest.results.model.ResultsState
+import com.example.melitest.results.usecase.SearchProductUseCase
 import com.example.melitest.results.viewmodel.ResultsViewModel
 
 /**
@@ -36,7 +37,7 @@ class ResultsFragment : Fragment() {
     private var _binding: ResultsFragmentBinding? = null
     private val binding get() = _binding!!
     private val args: ResultsFragmentArgs by navArgs()
-    private val viewModel: ResultsViewModel by viewModels()
+    private lateinit var viewModel: ResultsViewModel
 
     private lateinit var meliAdapter: MeliAdapter
 
@@ -52,7 +53,7 @@ class ResultsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = ResultsFragmentBinding.inflate(inflater, container, false)
-
+        viewModel = ResultsViewModel(SearchProductUseCase())
         if (isThereInternetConnection())
             viewModel.performSearch(args.query)
         else showNoInternetConnectionError()
